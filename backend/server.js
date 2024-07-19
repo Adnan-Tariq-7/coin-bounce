@@ -65,7 +65,7 @@ app.use(cors({
   optionsSuccessStatus:200,
   credentials:true
 }))
-app.use("/storage", express.static("storage"));
+// app.use("/storage", express.static("storage"));
 app.use(router);
 dbConnect();
 app.use(errorHandler);
@@ -75,4 +75,6 @@ app.get('/', (req, res) => {
   res.json({ message: 'Hello from the backend!' });
 });
 
-app.listen(PORT, console.log(`Backend is running on port ${PORT}`));
+app.listen(PORT, () => {
+  console.log(`Backend is running on port ${PORT}`);
+});
