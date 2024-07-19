@@ -70,4 +70,9 @@ app.use(router);
 dbConnect();
 app.use(errorHandler);
 
+
+app.get('/',(req,res)=>{
+  res.send("Hello from the backend!")
+})
+
 app.listen(PORT, console.log(`Backend is running on port ${PORT}`));
