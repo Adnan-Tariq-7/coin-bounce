@@ -91,7 +91,7 @@ const authController = {
 
     // 6. response send
     const userDTO = new UserDTO(user);
-    return res.status(201).json({ userDTO, auth: true });
+    return res.status(201).json({ user:userDTO, auth: true });
   },
 
   async login(req, res, next) {
