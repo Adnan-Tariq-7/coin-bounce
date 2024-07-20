@@ -67,21 +67,20 @@ app.use(cors({
 }))
 
 // https://coin-bounce-app-rust.vercel.app/
+const allowedOrigins = ['https://coin-bounce-app-rust.vercel.app/'];
 
-// const corsOptions = {
-//   origin: function (origin, callback) {
-//     // Allow requests from specific origins or return an error if not allowed
-//     const allowedOrigins = ['https://coin-bounce-app-rust.vercel.app/'];
-//     if (!origin || allowedOrigins.includes(origin)) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error('Not allowed by CORS'));
-//     }
-//   },
-//   credentials: true,
-//   optionsSuccessStatus: 200
-// };
-// app.use(cors(corsOptions));
+app.use(cors({
+  origin: function(origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['POST', 'GET', 'DELETE', 'PUT'],
+  credentials: true,
+  optionsSuccessStatus: 200
+}));
 
 
 
