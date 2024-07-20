@@ -28,7 +28,7 @@ app.use(cors({
 }));
 
 app.use(router);
-dbConnect();
+// dbConnect();
 app.use(errorHandler);
 
 app.get('/', (req, res) => {
